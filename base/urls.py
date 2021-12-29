@@ -1,5 +1,5 @@
-"""base URL Configuration
 
+"""base URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
@@ -14,8 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.templatetags.static import static
 from django.urls import path, include
 
 urlpatterns = [
