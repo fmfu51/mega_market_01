@@ -2,3 +2,5 @@ Django
 pillow
 git+https://github.com/jhs512/django-pydenticon
 easy-thumbnails
+django-bootstrap5
+mysqlclient
