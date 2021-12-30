@@ -1,8 +1,14 @@
 {% extends "layout.html" %}
 
-{% block content %}
-<div class="container">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut dolore earum libero modi nihil nisi soluta.
-    Atque deserunt distinctio, facere magni perspiciatis praesentium ratione reprehenderit sunt! Fugiat, incidunt, unde!
-</div>
-{% endblock %}
+{%block content %}
+<section class="section-prod-list mt-4">
+    <div class="container">
+        <ul>
+            {% for product in product_list %}
+            <li><a href="{% url 'products:detail' product.id %}">{{product.id}} {{product.display_name}}
+                {{product.sale_price}}원</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{%endblock%}

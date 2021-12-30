@@ -7,4 +7,5 @@
 
 html > body {
     font-family: "GmarketSansMedium";
+    text-underline-position: under; # 언더라인이 딱 붙지 않고, 살짝 밑으로 나옴
 }
