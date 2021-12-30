@@ -11,7 +11,7 @@ class Question(models.Model):
     update_date = models.DateTimeField('갱신날짜', auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content_type = models.ForeignKey(ContentType, related_name="content_type_question", on_delete=models.DO_NOTHING)
-    object_id = models.PositiveIntegerField('관련 데이터 번호')
+    object_id = models.PositiveIntegerField('관련 데이터 번호')    # product면 무조건 상품이어야하지만 object는 범용성이 있기 때문에 object로 작성
     content_object = GenericForeignKey('content_type', 'object_id')
     body = models.TextField('내용')
     is_complete = models.BooleanField('답변완료여부', default=False)
