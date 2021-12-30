@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpRequest, HttpResponse
 
-# Create your views here.
+
+def product_list(request: HttpRequest):
+    return HttpResponse("안녕")
