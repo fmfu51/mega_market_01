@@ -4,6 +4,13 @@ from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
 
+from markets.models import Market
+
+
+def gen_master(apps, schema_editor):
+    Market(name="언니네옷가게", site_url="https://www.abc1.co.kr", email="test1@test.com", master_id=2).save()
+    Market(name="누나네옷가게", site_url="https://www.abc2.co.kr", email="test2@test.com", master_id=3).save()
+    Market(name="이모네옷가게", site_url="https://www.abc3.co.kr", email="test3@test.com", master_id=4).save()
 
 class Migration(migrations.Migration):
 
@@ -26,4 +33,5 @@ class Migration(migrations.Migration):
                 ('master', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
+        migrations.RunPython(gen_master),
     ]
