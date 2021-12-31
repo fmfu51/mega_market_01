@@ -7,11 +7,11 @@ from markets.models import Market
 class Product(models.Model):
     reg_date = models.DateTimeField('등록날짜', auto_now_add=True)
     update_date = models.DateTimeField('갱신날짜', auto_now=True)
-    is_deleted = models.BooleanField('삭제여부', default=False) # 소프트삭제 : 데이터는 남기고 삭제, 하드삭제는 아예 삭제
+    is_deleted = models.BooleanField('삭제여부', default=False)
     delete_date = models.DateTimeField('삭제날짜', null=True, blank=True)
     market = models.ForeignKey(Market, on_delete=models.DO_NOTHING)
-    name = models.CharField('상품명(내부용)', max_length=100) # 단가라 원피스 3번
-    display_name = models.CharField('상품명(고객용)', max_length=100) # 인스타여신 품절대란 단가라 원피스
+    name = models.CharField('상품명(내부용)', max_length=100)
+    display_name = models.CharField('상품명(고객용)', max_length=100)
     price = models.PositiveIntegerField('권장판매가')
     sale_price = models.PositiveIntegerField('실제판매가')
     is_hidden = models.BooleanField('노출여부', default=False)
@@ -25,7 +25,7 @@ class Product(models.Model):
 class ProductReal(models.Model):
     reg_date = models.DateTimeField('등록날짜', auto_now_add=True)
     update_date = models.DateTimeField('갱신날짜', auto_now=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="product_reals")
     option_1_type = models.CharField('옵션1 타입', max_length=10, default='SIZE')
     option_1_name = models.CharField('옵션1 이름(내부용)', max_length=50)
     option_1_display_name = models.CharField('옵션1 이름(고객용)', max_length=50)
